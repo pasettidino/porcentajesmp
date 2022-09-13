@@ -33,4 +33,5 @@ function porcentaje (num1, metododepago, tipo){
     }
 }
 
+/* EJEMPLO */
 console.log(porcentaje(2500, "qr", "debito"));
