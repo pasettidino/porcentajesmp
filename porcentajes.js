@@ -53,12 +53,9 @@ console.log(productos);
 let preciosConInteres = productos.map(producto => {
     return {
         nombre: producto.nombre,
-        precio: producto.precio + (porcentaje(productos.precio, "qr", "debito"))
+        precio: producto.precio + (porcentaje(producto.precio, "qr", "debito"))
     };
 })
 
 console.log(preciosConInteres);
 
-/* EJEMPLO *//* 
-console.log(porcentaje(5000, "qr", "debito"));
- */
