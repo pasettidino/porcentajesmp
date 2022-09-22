@@ -42,20 +42,19 @@ class Producto {
 }
 
 let productos = [];
-productos.push(new Producto(productos.length + 1, "Musculosa Miami Heat", 8000));
-productos.push(new Producto(productos.length + 1, "Short Lakers", 7500));
-productos.push(new Producto(productos.length + 1, "Musculosa Denver - Campazzo", 11000));
-productos.push(new Producto(productos.length + 1, "Camiseta seleccion Argentina", 5000));
-productos.push(new Producto(productos.length + 1, "Buzo Cavaliers", 12000));
-console.log(productos);
+productos.push(new Producto(productos.length + 1, prompt("Ingrese el nombre del producto") , parseInt(prompt("Ingrese el precio del producto"))));
 
-let preciosConInteres = productos.map(producto => {
-    return {
-        nombre: producto.nombre,
-        precio: producto.precio + (porcentaje(producto.precio, "point", "debito"))
-    };
+let mensaje;
+
+productos.forEach(producto => {
+    mensaje = ` 
+        Producto: ${producto.nombre}
+        Precio con Interes: ${producto.precio + porcentaje(producto.precio, "point", "debito")}
+    ` 
 })
-console.log(preciosConInteres);
+
+alert(mensaje);
+
 
 
 
