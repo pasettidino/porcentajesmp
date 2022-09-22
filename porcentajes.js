@@ -43,17 +43,21 @@ class Producto {
 
 let productos = [];
 productos.push(new Producto(productos.length + 1, prompt("Ingrese el nombre del producto") , parseInt(prompt("Ingrese el precio del producto"))));
+productos.push(new Producto(productos.length + 1, prompt("Ingrese el nombre del producto") , parseInt(prompt("Ingrese el precio del producto"))));
+productos.push(new Producto(productos.length + 1, prompt("Ingrese el nombre del producto") , parseInt(prompt("Ingrese el precio del producto"))));
 
 let mensaje;
 
 productos.forEach(producto => {
-    mensaje = ` 
+    mensaje +=` 
         Producto: ${producto.nombre}
         Precio con Interes: ${producto.precio + porcentaje(producto.precio, "point", "debito")}
     ` 
 })
 
 alert(mensaje);
+
+
 
 
 
