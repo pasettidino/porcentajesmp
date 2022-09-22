@@ -41,7 +41,6 @@ class Producto {
     }
 }
 
-let contenedor = document.getElementById("contenedor");
 let productos = [];
 productos.push(new Producto(productos.length + 1, "Musculosa Miami Heat", 8000));
 productos.push(new Producto(productos.length + 1, "Short Lakers", 7500));
@@ -53,24 +52,13 @@ console.log(productos);
 let preciosConInteres = productos.map(producto => {
     return {
         nombre: producto.nombre,
-        precio: producto.precio + (porcentaje(producto.precio, "qr", "debito"))
+        precio: producto.precio + (porcentaje(producto.precio, "point", "debito"))
     };
 })
-
 console.log(preciosConInteres);
 
-productos.forEach(producto => {
-    let item = document.createElement("div");
-    item.innerHTML =  `
-    <h3>Id: ${producto.id}</h3>
-    <p>Producto: ${producto.nombre}</p>
-    <b>$${producto.precio}</b>
-    `;
-    contenedor.append(item);
-})
 
-/* let num1 = parseInt(prompt("Ingrese el precio del producto que eligio"));
-let metododepago = parseInt(prompt("Ingrese el metodo de pago que utilizara"));
-let tipo = parseInt(prompt("Ingrese el tipo de tarjeta que utilizara"));
-alert(preciosConInteres); */
+
+
+
 
