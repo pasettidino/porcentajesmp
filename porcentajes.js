@@ -41,22 +41,42 @@ class Producto {
     }
 }
 
+let contenedor = document.getElementById("contenedor");
 let productos = [];
-productos.push(new Producto(productos.length + 1, prompt("Ingrese el nombre del producto") , parseInt(prompt("Ingrese el precio del producto"))));
-productos.push(new Producto(productos.length + 1, prompt("Ingrese el nombre del producto") , parseInt(prompt("Ingrese el precio del producto"))));
-productos.push(new Producto(productos.length + 1, prompt("Ingrese el nombre del producto") , parseInt(prompt("Ingrese el precio del producto"))));
-
-let mensaje;
+productos.push(new Producto(productos.length + 1, "Musculosa Miami Heat", 8000));
+productos.push(new Producto(productos.length + 1, "Short Lakers", 7500));
+productos.push(new Producto(productos.length + 1, "Musculosa Denver - Campazzo", 11000));
+productos.push(new Producto(productos.length + 1, "Camiseta seleccion Argentina", 5000));
+productos.push(new Producto(productos.length + 1, "Buzo Cavaliers", 12000));
+console.log(productos);
 
 productos.forEach(producto => {
-    mensaje +=` 
-        Producto: ${producto.nombre}
-        Precio con Interes: ${producto.precio + porcentaje(producto.precio, "point", "debito")}
+    let item = document.createElement("div");
+    item.innerHTML = ` 
+        <h2>Id: ${producto.id} </h2>
+        <h3> Producto: ${producto.nombre} </h3>
+        <b>$${producto.precio} </b>
     ` 
+
+    contenedor.append(item);
 })
 
-alert(mensaje);
 
+function calcularInteres() {
+
+	let tarjeta = document.getElementById("tarjeta");
+	let valorTarjeta = tarjeta.options[tarjeta.selectedIndex].value;
+
+	let metodoDePago = document.getElementById("medioDePago");
+	let valorMetodoDePago = metodoDePago.options[metodoDePago.selectedIndex].value;
+
+
+	let monto = document.getElementById("monto").value;
+
+    document.getElementById("interes").innerHTML = parseInt(monto) +  porcentaje(parseInt(monto), valorMetodoDePago, valorTarjeta);
+}
+
+document.getElementById("btnInteres").addEventListener("click", calcularInteres);
 
 
 
