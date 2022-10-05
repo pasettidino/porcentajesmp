@@ -49,6 +49,7 @@ productos.push(new Producto(productos.length + 1, "Musculosa Denver - Campazzo",
 productos.push(new Producto(productos.length + 1, "Camiseta seleccion Argentina", 5000));
 productos.push(new Producto(productos.length + 1, "Buzo Cavaliers", 12000));
 console.log(productos);
+localStorage.setItem("Articulos", JSON.stringify(productos));
 
 productos.forEach(producto => {
     let item = document.createElement("div");
